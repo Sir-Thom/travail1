@@ -1,0 +1,14 @@
+D:\Programmation objet\travail1\bin\Debug\travail1.exe.config
+D:\Programmation objet\travail1\bin\Debug\travail1.exe
+D:\Programmation objet\travail1\bin\Debug\travail1.pdb
+D:\Programmation objet\travail1\obj\Debug\travail1.parent.resources
+D:\Programmation objet\travail1\obj\Debug\travail1.Properties.Resources.resources
+D:\Programmation objet\travail1\obj\Debug\travail1.csproj.GenerateResource.cache
+D:\Programmation objet\travail1\obj\Debug\travail1.csproj.CoreCompileInputs.cache
+D:\Programmation objet\travail1\obj\Debug\travail1.exe
+D:\Programmation objet\travail1\obj\Debug\travail1.pdb
+D:\Programmation objet\travail1\obj\Debug\travail1.csproj.AssemblyReference.cache
+D:\Programmation objet\travail1\obj\Debug\travail1.FormCamion.resources
+D:\Programmation objet\travail1\obj\Debug\travail1.FromCamionneur.resources
+D:\Programmation objet\travail1\obj\Debug\travail1.Formvoyage.resources
+D:\Programmation objet\travail1\obj\Debug\travail1.FromLivraison.resources
