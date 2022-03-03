@@ -48,15 +48,16 @@ namespace travail1
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // voyage
+            // Formvoyage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "voyage";
+            this.Name = "Formvoyage";
             this.Text = "voyage";
             this.Load += new System.EventHandler(this.voyage_Load);
             this.ResumeLayout(false);

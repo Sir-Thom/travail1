@@ -34,11 +34,13 @@ namespace travail1
             this.label1 = new System.Windows.Forms.Label();
             this.txt_poids = new System.Windows.Forms.TextBox();
             this.lb_poids = new System.Windows.Forms.Label();
+            this.dtpDateLivraison = new System.Windows.Forms.DateTimePicker();
+            this.lbl_date = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_ajouter
             // 
-            this.btn_ajouter.Location = new System.Drawing.Point(185, 95);
+            this.btn_ajouter.Location = new System.Drawing.Point(185, 112);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(75, 23);
             this.btn_ajouter.TabIndex = 9;
@@ -50,7 +52,7 @@ namespace travail1
             // 
             this.txt_volume.Location = new System.Drawing.Point(51, 73);
             this.txt_volume.Name = "txt_volume";
-            this.txt_volume.Size = new System.Drawing.Size(100, 20);
+            this.txt_volume.Size = new System.Drawing.Size(132, 20);
             this.txt_volume.TabIndex = 8;
             // 
             // label1
@@ -66,7 +68,7 @@ namespace travail1
             // 
             this.txt_poids.Location = new System.Drawing.Point(51, 47);
             this.txt_poids.Name = "txt_poids";
-            this.txt_poids.Size = new System.Drawing.Size(100, 20);
+            this.txt_poids.Size = new System.Drawing.Size(132, 20);
             this.txt_poids.TabIndex = 6;
             // 
             // lb_poids
@@ -78,17 +80,36 @@ namespace travail1
             this.lb_poids.TabIndex = 5;
             this.lb_poids.Text = "Poids";
             // 
-            // FormLivraison
+            // dtpDateLivraison
+            // 
+            this.dtpDateLivraison.Location = new System.Drawing.Point(51, 21);
+            this.dtpDateLivraison.Name = "dtpDateLivraison";
+            this.dtpDateLivraison.Size = new System.Drawing.Size(132, 20);
+            this.dtpDateLivraison.TabIndex = 12;
+            this.dtpDateLivraison.ValueChanged += new System.EventHandler(this.DtpDateLivraison_ValueChanged);
+            // 
+            // lbl_date
+            // 
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Location = new System.Drawing.Point(3, 27);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(30, 13);
+            this.lbl_date.TabIndex = 13;
+            this.lbl_date.Text = "Date";
+            // 
+            // FromLivraison
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 147);
+            this.Controls.Add(this.lbl_date);
+            this.Controls.Add(this.dtpDateLivraison);
             this.Controls.Add(this.btn_ajouter);
             this.Controls.Add(this.txt_volume);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_poids);
             this.Controls.Add(this.lb_poids);
-            this.Name = "FormLivraison";
+            this.Name = "FromLivraison";
             this.Text = "FormLivraison";
             this.Load += new System.EventHandler(this.FormLivraison_Load);
             this.ResumeLayout(false);
@@ -103,5 +124,7 @@ namespace travail1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_poids;
         private System.Windows.Forms.Label lb_poids;
+        private System.Windows.Forms.DateTimePicker dtpDateLivraison;
+        private System.Windows.Forms.Label lbl_date;
     }
 }

@@ -34,9 +34,9 @@ namespace travail1
             cbox_camion.DataSource = bindingSourceCamion;
             bsLivraison.DataSource = LivraisonList;
             lst_non_livraison.DataSource = bsLivraison;
-           // camionInfo Camion = new camionInfo();
-           //int poidDuCamion = Camion.VolumeDuCamionInfo;
-           // camionsList.Add((travail1.camionInfo)poidDuCamion);
+            // camionInfo Camion = new camionInfo();
+            //int poidDuCamion = Camion.VolumeDuCamionInfo;
+            // camionsList.Add((travail1.camionInfo)poidDuCamion);
 
             // cbox_camion.Items.Add(camionsList);
         }
@@ -46,6 +46,7 @@ namespace travail1
             string LivraisonChoisi;
             LivraisonChoisi = lst_non_livraison.SelectedItem.ToString() ;
             bsLivraison.Clear();
+            lst_non_livraison.DataSource = bsLivraison;
             lst_non_livraison.Items.Remove(lst_non_livraison.SelectedItem);
             lst_livraison_incluse.Items.Add(LivraisonChoisi);
            
@@ -55,11 +56,9 @@ namespace travail1
         {
             string LivraisonChoisi;
             LivraisonChoisi = lst_livraison_incluse.SelectedItem.ToString();
-            
             lst_livraison_incluse.Items.Remove(lst_livraison_incluse.SelectedItem);
-            bsLivraison.Clear();
-            bsLivraison.Remove(lst_non_livraison);
-         
+            bsLivraison.Remove(lst_non_livraison.DataSource);
+            lst_livraison_incluse.DataSource = LivraisonChoisi.data;
             lst_non_livraison.Items.Add(LivraisonChoisi);
             
         }
