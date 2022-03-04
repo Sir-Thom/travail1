@@ -28,13 +28,12 @@ namespace travail1
         {
             int PoidsDuLivraison;
             int VolumeDuLivraison;
-            DateTime dateLivraison;
+            
             //int PoidsDuCamionInfo = int.Parse(txt_poids.Text);
             //VolumeDuCamionInfo = int.Parse(txt_volume.Text);
-            dateLivraison = dtpDateLivraison.MaxDate;
             PoidsDuLivraison = int.Parse(txt_poids.Text);
             VolumeDuLivraison = int.Parse(txt_volume.Text);
-            livraison = new Livraison(PoidsDuLivraison, VolumeDuLivraison,dateLivraison);
+            livraison = new Livraison(PoidsDuLivraison, VolumeDuLivraison);
             // CamionCree = "Poids : " + PoidsDuCamion.ToString() + " Lbs "  + " , Volume de : " + VolumeDuCamion.ToString();
             this.DialogResult = DialogResult.OK;
             //  CamionCree = "Camion de :" + PoidsDuCamionInfo + " Lbs " + volumeDuCamion.ToString() + " avec un volume de : " + VolumeDuCamionInfo;

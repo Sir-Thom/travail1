@@ -81,6 +81,7 @@
     <Compile Include="Formvoyage.Designer.cs">
       <DependentUpon>Formvoyage.cs</DependentUpon>
     </Compile>
+    <Compile Include="voyage.cs" />
     <EmbeddedResource Include="FormCamion.resx">
       <DependentUpon>FormCamion.cs</DependentUpon>
     </EmbeddedResource>

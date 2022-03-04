@@ -34,8 +34,6 @@ namespace travail1
             this.label1 = new System.Windows.Forms.Label();
             this.txt_poids = new System.Windows.Forms.TextBox();
             this.lb_poids = new System.Windows.Forms.Label();
-            this.dtpDateLivraison = new System.Windows.Forms.DateTimePicker();
-            this.lbl_date = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_ajouter
@@ -80,30 +78,11 @@ namespace travail1
             this.lb_poids.TabIndex = 5;
             this.lb_poids.Text = "Poids";
             // 
-            // dtpDateLivraison
-            // 
-            this.dtpDateLivraison.Location = new System.Drawing.Point(51, 21);
-            this.dtpDateLivraison.Name = "dtpDateLivraison";
-            this.dtpDateLivraison.Size = new System.Drawing.Size(132, 20);
-            this.dtpDateLivraison.TabIndex = 12;
-            this.dtpDateLivraison.ValueChanged += new System.EventHandler(this.DtpDateLivraison_ValueChanged);
-            // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(3, 27);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(30, 13);
-            this.lbl_date.TabIndex = 13;
-            this.lbl_date.Text = "Date";
-            // 
             // FromLivraison
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 147);
-            this.Controls.Add(this.lbl_date);
-            this.Controls.Add(this.dtpDateLivraison);
             this.Controls.Add(this.btn_ajouter);
             this.Controls.Add(this.txt_volume);
             this.Controls.Add(this.label1);
@@ -124,7 +103,5 @@ namespace travail1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_poids;
         private System.Windows.Forms.Label lb_poids;
-        private System.Windows.Forms.DateTimePicker dtpDateLivraison;
-        private System.Windows.Forms.Label lbl_date;
     }
 }
