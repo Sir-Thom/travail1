@@ -258,6 +258,7 @@ namespace travail1
             this.lst_livraison_incluse.Name = "lst_livraison_incluse";
             this.lst_livraison_incluse.Size = new System.Drawing.Size(295, 147);
             this.lst_livraison_incluse.TabIndex = 2;
+            this.lst_livraison_incluse.SelectedIndexChanged += new System.EventHandler(this.lst_livraison_incluse_SelectedIndexChanged);
             // 
             // btn_dans
             // 
