@@ -146,6 +146,7 @@ namespace travail1
             this.lst_non_livraison.Name = "lst_non_livraison";
             this.lst_non_livraison.Size = new System.Drawing.Size(307, 147);
             this.lst_non_livraison.TabIndex = 1;
+            this.lst_non_livraison.SelectedIndexChanged += new System.EventHandler(this.lst_non_livraison_SelectedIndexChanged);
             // 
             // groupBox3
             // 

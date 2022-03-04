@@ -8,7 +8,7 @@ namespace travail1
     {
         BindingSource bindingSourceCamion = new BindingSource();
         BindingSource bindingSourceCamionneur = new BindingSource();
-        List<Camion> camionsList = new List<Camion>();
+        List<Camion> camionsList = new List<Camion>(500);
         BindingSource bsLivraison = new BindingSource();
         BindingSource bsLivraison2 = new BindingSource();
         List<Camionneur> CamionneursList = new List<Camionneur>();
@@ -24,14 +24,15 @@ namespace travail1
 
         private void parent_Load(object sender, EventArgs e)
         {
-            
+            voyage voyageselect = (voyage)lst_voyage.SelectedItem;
             bindingSourceCamionneur.DataSource = CamionneursList;
             cbox_Camionneur.DataSource = bindingSourceCamionneur;
             bindingSourceCamion.DataSource = camionsList;
             cbox_camion.DataSource = bindingSourceCamion;
             bsLivraison.DataSource = LivraisonList;
             lst_non_livraison.DataSource = bsLivraison;
-
+            bsLivraison2.DataSource = voyageselect;
+            lst_livraison_incluse.DataSource = bsLivraison2;
             bsVoyage.DataSource = listVoyages;
             lst_voyage.DataSource = bsVoyage;
             voyage nouveauvoyage = new voyage("Voyage1");
@@ -40,59 +41,94 @@ namespace travail1
             voyage nouveauvoyage2 = new voyage("Voyage2");
             listVoyages.Add(nouveauvoyage2);
             bsVoyage.ResetBindings(false);
-            
+            Camion camion1 = new Camion(500,500);
+            camionsList.Add(camion1);
+            bindingSourceCamion.ResetBindings(false);
+            Livraison livraison1 = new Livraison(100, 100);
+            LivraisonList.Add(livraison1);
+            bsLivraison.ResetBindings(false);
 
-            // camionInfo Camion = new camionInfo();
-            //int poidDuCamion = Camion.VolumeDuCamionInfo;
-            // camionsList.Add((travail1.camionInfo)poidDuCamion);
-
-            // cbox_camion.Items.Add(camionsList);
+        
         }
-
-        private void btn_dans_Click(object sender, EventArgs e)
+        // met dans la liste inclus
+        private void btn_dans_Click(object sender, EventArgs e) // ceci marche que en partie 
         {
             Livraison livraisonselect = (Livraison)lst_non_livraison.SelectedItem;
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
-            /*LivraisonChoisi = lst_non_livraison.SelectedItem.ToString() ;
-             voyage voyagselect = (voyage)lst_livraison_incluse.SelectedItem();*/
-
+            
+           // bsLivraison.Remove(livraisonselect);
 
             if (livraisonselect != null)
             {
+               // MessageBox.Show(voyageselect.Livraison.ToString());
+                // en construction circuler
+                
                 string messageretour = voyageselect.AjouterLivraison(livraisonselect);
-                if (messageretour == null)
+                if (messageretour == null)// les camions reste null (note:régler)
                 {
-                    int test = lst_livraison_incluse.Items.Add(livraisonselect);
-                    bsLivraison.Remove(test);
+                    voyageselect.Livraison = livraisonselect;
+                    /*
+                     * note: il faut que voyage sont utiliser pour les inclus mais le problème est que la la list
+                     * prend les  inclus est les non inclus. liste voyage semble ne pas delete l'autre livraison.
+                     * le problème doit être les bindings source.
+                     */
+                    // bsVoyage.Remove(voyageselect);
+                    int test = bsLivraison2.Add(voyageselect.Livraison);
+                   // int test = lst_livraison_incluse.Items.Add(livraisonselect);
+                    
+                    bsLivraison2.ResetBindings(false);
+                    bsLivraison.Remove(livraisonselect);
+                    
+                    
+                    bsLivraison.ResetBindings(false);
                 }
 
-                else
+                if (messageretour == "un camion doit être selectionné")
                 {
-                    MessageBox.Show("ajout erreur");
+                    MessageBox.Show("erreur un camion doit être ajouter");
                 }
+                if (messageretour == "poids trop lourd pour le camion")
+                {
+                    MessageBox.Show(messageretour);
+                }
+
+                //bsLivraison = null;
+                
+
             }
-
         }
 
+   
+        //mets dans la liste non inclus
         private void btn_hors_Click(object sender, EventArgs e)
         {
             Livraison livraisonselect = (Livraison)lst_non_livraison.SelectedItem;
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
-            /*LivraisonChoisi = lst_non_livraison.SelectedItem.ToString() ;
-             voyage voyagselect = (voyage)lst_livraison_incluse.SelectedItem();*/
-
-
+            // en construction circuler
             if (livraisonselect != null)
             {
-                LivraisonList.Add(livraisonselect);
-                int retourLivraison = lst_livraison_incluse.Items.Add(livraisonselect);
-                string messageretour = voyageselect.AjouterLivraison(livraisonselect);
-                if (messageretour == null)
-                {
-                    int test = lst_livraison_incluse.Items.Add(livraisonselect);
-                    bsLivraison.Remove(test);
-                }
+                // MessageBox.Show(voyageselect.Livraison.ToString());
+                // en construction circuler
 
+                string messageretour = voyageselect.AjouterLivraison(livraisonselect);
+                if (messageretour == null)// les camions reste null (note:régler)
+                {
+                    voyageselect.Livraison = livraisonselect;
+                    /*
+                     * note: il faut que voyage sont utiliser pour les inclus mais le problème est que la la list
+                     * prend les  inclus est les non inclus. liste voyage semble ne pas delete l'autre livraison.
+                     * le problème doit être les bindings source.
+                     */
+                    // bsVoyage.Remove(voyageselect);
+                    int test = bsLivraison2.Add(voyageselect.Livraison);
+                    // int test = lst_livraison_incluse.Items.Add(livraisonselect);
+
+                    bsLivraison2.ResetBindings(false);
+                    bsLivraison.Remove(livraisonselect);
+
+
+                    bsLivraison.ResetBindings(false);
+                }
 
             }
 
@@ -176,7 +212,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère camion 
         private void cbox_camion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Camion camionSelect = (Camion)cbox_camion.SelectedItem;
@@ -189,7 +225,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère la liste voyage
         private void lst_voyage_SelectedIndexChanged(object sender, EventArgs e)
         {
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
@@ -201,7 +237,7 @@ namespace travail1
                 dateTimePicker1.Value = voyageselect.Date;
             }
         }
-
+        // gère les camionneur
         private void cbox_Camionneur_SelectedIndexChanged(object sender, EventArgs e)
         {
             Camionneur camionneurSelect = (Camionneur)cbox_camion.SelectedItem;
@@ -214,7 +250,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère la  distance 
         private void txt_distance_Leave(object sender, EventArgs e)
         {
             string input = txt_distance.Text;
@@ -245,7 +281,7 @@ namespace travail1
                 MessageBox.Show("nb invalid");
             }
         }
-
+        // gère la date 
         private void dateTimePicker1_Leave(object sender, EventArgs e)
         {
             DateTime nouvelleDate = dateTimePicker1.Value;
@@ -255,8 +291,24 @@ namespace travail1
                 
                 voyageselect.Date = nouvelleDate;
             }
+            else
+            {
+                MessageBox.Show("date invalid");
+            }    
+            
+        }
 
-            MessageBox.Show("date invalid");
+        private void lst_non_livraison_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Livraison livraisonSelect = (Livraison)lst_non_livraison.SelectedItem;
+            if (livraisonSelect != null)
+            {
+                voyage voyageselect = (voyage)lst_voyage.SelectedItem;
+                if (voyageselect != null)
+                {
+                    voyageselect.Livraison = livraisonSelect;
+                }
+            }
         }
     }
 }
