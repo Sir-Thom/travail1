@@ -42,41 +42,44 @@ namespace travail1
             bsVoyage.ResetBindings(false);
             
 
-            // camionInfo Camion = new camionInfo();
-            //int poidDuCamion = Camion.VolumeDuCamionInfo;
-            // camionsList.Add((travail1.camionInfo)poidDuCamion);
-
-            // cbox_camion.Items.Add(camionsList);
+        
         }
-
-        private void btn_dans_Click(object sender, EventArgs e)
+        // met dans la liste inclus
+        private void btn_dans_Click(object sender, EventArgs e) // ceci marche que en partie 
         {
             Livraison livraisonselect = (Livraison)lst_non_livraison.SelectedItem;
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
-            /*LivraisonChoisi = lst_non_livraison.SelectedItem.ToString() ;
-             voyage voyagselect = (voyage)lst_livraison_incluse.SelectedItem();*/
-
+            
+            bsLivraison.Remove(livraisonselect);
 
             if (livraisonselect != null)
             {
+                // en construction circuler
+                //int retourLivraison = lst_livraison_incluse.Items.Add(livraisonselect);
                 string messageretour = voyageselect.AjouterLivraison(livraisonselect);
-                if (messageretour == null)
+                if (messageretour == null)// les camions reste null (note: à régler)
                 {
                     int test = lst_livraison_incluse.Items.Add(livraisonselect);
-                    bsLivraison.Remove(test);
+                    //int test = lst_livraison_incluse.Items.Add(livraisonselect);
+                    bsLivraison.Remove(livraisonselect);
+                    bsLivraison = null;
+                    
+                    bsLivraison.ResetBindings(false);
                 }
-
                 else
                 {
-                    MessageBox.Show("ajout erreur");
+                    MessageBox.Show("erreur ajout");
                 }
-            }
 
+            }
         }
 
+   
+        //mets dans la liste non inclus
         private void btn_hors_Click(object sender, EventArgs e)
         {
-            Livraison livraisonselect = (Livraison)lst_non_livraison.SelectedItem;
+            // en construction circuler
+            Livraison livraisonselect = (Livraison)lst_livraison_incluse.SelectedItem;
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
             /*LivraisonChoisi = lst_non_livraison.SelectedItem.ToString() ;
              voyage voyagselect = (voyage)lst_livraison_incluse.SelectedItem();*/
@@ -84,15 +87,19 @@ namespace travail1
 
             if (livraisonselect != null)
             {
+                bsLivraison.ResetBindings(false);
                 LivraisonList.Add(livraisonselect);
-                int retourLivraison = lst_livraison_incluse.Items.Add(livraisonselect);
+                int retourLivraison = lst_non_livraison.Items.Add(livraisonselect);
                 string messageretour = voyageselect.AjouterLivraison(livraisonselect);
                 if (messageretour == null)
                 {
-                    int test = lst_livraison_incluse.Items.Add(livraisonselect);
+                    int test = lst_non_livraison.Items.Add(livraisonselect);
                     bsLivraison.Remove(test);
                 }
-
+                else
+                {
+                    MessageBox.Show("erreur retrait");
+                }
 
             }
 
@@ -176,7 +183,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère camion 
         private void cbox_camion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Camion camionSelect = (Camion)cbox_camion.SelectedItem;
@@ -189,7 +196,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère la liste voyage
         private void lst_voyage_SelectedIndexChanged(object sender, EventArgs e)
         {
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
@@ -201,7 +208,7 @@ namespace travail1
                 dateTimePicker1.Value = voyageselect.Date;
             }
         }
-
+        // gère les camionneur
         private void cbox_Camionneur_SelectedIndexChanged(object sender, EventArgs e)
         {
             Camionneur camionneurSelect = (Camionneur)cbox_camion.SelectedItem;
@@ -214,7 +221,7 @@ namespace travail1
                 }
             }
         }
-
+        // gère la  distance 
         private void txt_distance_Leave(object sender, EventArgs e)
         {
             string input = txt_distance.Text;
@@ -245,7 +252,7 @@ namespace travail1
                 MessageBox.Show("nb invalid");
             }
         }
-
+        // gère la date 
         private void dateTimePicker1_Leave(object sender, EventArgs e)
         {
             DateTime nouvelleDate = dateTimePicker1.Value;
@@ -255,8 +262,11 @@ namespace travail1
                 
                 voyageselect.Date = nouvelleDate;
             }
-
-            MessageBox.Show("date invalid");
+            else
+            {
+                MessageBox.Show("date invalid");
+            }    
+            
         }
     }
 }

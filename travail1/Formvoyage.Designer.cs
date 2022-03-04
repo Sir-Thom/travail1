@@ -36,7 +36,7 @@ namespace travail1
             // 
             // txt_voyage
             // 
-            this.txt_voyage.Location = new System.Drawing.Point(98, 87);
+            this.txt_voyage.Location = new System.Drawing.Point(98, 6);
             this.txt_voyage.Name = "txt_voyage";
             this.txt_voyage.Size = new System.Drawing.Size(100, 20);
             this.txt_voyage.TabIndex = 0;
@@ -44,7 +44,7 @@ namespace travail1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 90);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 1;
@@ -53,7 +53,7 @@ namespace travail1
             // 
             // btn_ajouter
             // 
-            this.btn_ajouter.Location = new System.Drawing.Point(159, 132);
+            this.btn_ajouter.Location = new System.Drawing.Point(159, 51);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(75, 23);
             this.btn_ajouter.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace travail1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 167);
+            this.ClientSize = new System.Drawing.Size(246, 83);
             this.Controls.Add(this.btn_ajouter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_voyage);

@@ -31,6 +31,7 @@ namespace travail1
         public string AjouterLivraison(Livraison nouvellelivraison)
         {
             Livraisons.Add(nouvellelivraison);
+            
             if (Camion == null)
             {
                 return "un camion doit être selectionné";
@@ -39,7 +40,8 @@ namespace travail1
             int volumemax = camion.VolumeDuCamionInfo;
             int totalpoids = 0;
             int totlavolume = 0;
-            
+
+        
             for (int indexlivraison = 0; indexlivraison < Livraisons.Count; indexlivraison++)
             {
                totalpoids = totalpoids + Livraisons[indexlivraison].PoidsDuLivraisonInfo;
