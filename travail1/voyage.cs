@@ -30,7 +30,7 @@ namespace travail1
 
         public string AjouterLivraison(Livraison nouvellelivraison)
         {
-            Livraisons.Add(nouvellelivraison);
+            //Livraisons.Add(nouvellelivraison);
             
             if (Camion == null)
             {
@@ -41,16 +41,24 @@ namespace travail1
             int totalpoids = 0;
             int totlavolume = 0;
 
-        
-            for (int indexlivraison = 0; indexlivraison < Livraisons.Count; indexlivraison++)
+            foreach (Livraison livraisoner in Livraisons)// select les deux colonnes à place de non-selectionner
+            {
+                int indexlivraison = Livraisons.Count;
+                totalpoids = totalpoids + poidsmax;
+            }
+            /*for (int indexlivraison = 0; indexlivraison < Livraisons.Count; indexlivraison++)
             {
                totalpoids = totalpoids + Livraisons[indexlivraison].PoidsDuLivraisonInfo;
                 totlavolume = totlavolume + Livraisons[indexlivraison].VolumeDuLivraisonInfo;
+            }*/
+            if (totalpoids > poidsmax)
+            {
+                return "poids trop lourd pour le camion"; 
             }
-            
-            totalpoids = totalpoids + nouvellelivraison.PoidsDuLivraisonInfo;
-            totlavolume = totlavolume + nouvellelivraison.VolumeDuLivraisonInfo;
-            return "";
+            Livraisons.Add(nouvellelivraison);
+            //totalpoids = totalpoids + nouvellelivraison.PoidsDuLivraisonInfo;
+            // totlavolume = totlavolume + nouvellelivraison.VolumeDuLivraisonInfo;
+            return null;
         }
         public override string ToString()
         {
