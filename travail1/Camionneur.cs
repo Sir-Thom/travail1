@@ -1,9 +1,16 @@
-﻿namespace travail1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace travail1
 {
-    internal class Camionneur
+    class Camionneur
     {
         private string prenom;
         private string nom;
+        
 
         public Camionneur(string prenomCamionneur, string nomCamionneur)
         {
@@ -16,7 +23,7 @@
 
         public override string ToString()
         {
-            return PrenomCamionneur.ToString() + " " + NomCamionneur;
+            return PrenomCamionneur.ToString()+" "+ NomCamionneur;
         }
     }
 }

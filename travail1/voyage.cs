@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace travail1
 {
-    internal class voyage
+    class voyage
     {
         private int distance;
         private string nomVoyage;
-        private Camion camion;
+       private Camion camion;
         private Camionneur camionneur;
         private Livraison livraison;
         private List<Livraison> Livraisons = new List<Livraison>();
-        private DateTime dateTime = new DateTime(2022, 1, 1, 5, 10, 20);
-
-        public voyage(string nom)
+        private DateTime dateTime = new DateTime(2015, 12, 31, 5, 10, 20);
+        
+        public voyage(string nom )
         {
             nomVoyage = nom;
+            
         }
-
         public DateTime Date { get => dateTime; set => dateTime = value; }
         public Camion Camion { get => camion; set => camion = value; }
         public Camionneur Camionneur { get => camionneur; set => camionneur = value; }
@@ -28,7 +31,7 @@ namespace travail1
         public string AjouterLivraison(Livraison nouvellelivraison)
         {
             //Livraisons.Add(nouvellelivraison);
-
+            
             if (Camion == null)
             {
                 return "un camion doit être selectionné";
@@ -50,19 +53,18 @@ namespace travail1
             }*/
             if (totalpoids > poidsmax)
             {
-                return "poids trop lourd pour le camion";
+                return "poids trop lourd pour le camion"; 
             }
             Livraisons.Add(nouvellelivraison);
             //totalpoids = totalpoids + nouvellelivraison.PoidsDuLivraisonInfo;
             // totlavolume = totlavolume + nouvellelivraison.VolumeDuLivraisonInfo;
             return null;
         }
-
         public override string ToString()
         {
             return nomVoyage;
+     
         }
-
         public void RetirerLivraison(Livraison livraisonretirer)
         {
             Livraisons.Remove(livraisonretirer);

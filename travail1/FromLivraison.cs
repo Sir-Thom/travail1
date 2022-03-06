@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace travail1
 {
     public partial class FromLivraison : Form
     {
-        private Livraison infolivraison;
+        Livraison infolivraison;
 
         public FromLivraison()
         {
@@ -14,15 +21,14 @@ namespace travail1
 
         private void FormLivraison_Load(object sender, EventArgs e)
         {
+
         }
-
         internal Livraison livraison { get => infolivraison; set => infolivraison = value; }
-
         private void btn_ajouter_Click(object sender, EventArgs e)
         {
             int PoidsDuLivraison;
             int VolumeDuLivraison;
-
+            
             //int PoidsDuCamionInfo = int.Parse(txt_poids.Text);
             //VolumeDuCamionInfo = int.Parse(txt_volume.Text);
             PoidsDuLivraison = int.Parse(txt_poids.Text);
@@ -36,6 +42,7 @@ namespace travail1
 
         private void DtpDateLivraison_ValueChanged(object sender, EventArgs e)
         {
+
         }
     }
 }

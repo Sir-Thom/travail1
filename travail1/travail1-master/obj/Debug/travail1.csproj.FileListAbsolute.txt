@@ -1,0 +1,14 @@
+C:\Users\thoma\Downloads\travail1-master\travail1-master\bin\Debug\travail1.exe.config
+C:\Users\thoma\Downloads\travail1-master\travail1-master\bin\Debug\travail1.exe
+C:\Users\thoma\Downloads\travail1-master\travail1-master\bin\Debug\travail1.pdb
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.csproj.AssemblyReference.cache
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.FormCamion.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.FromCamionneur.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.FromLivraison.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.parent.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.Properties.Resources.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.Formvoyage.resources
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.csproj.GenerateResource.cache
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.csproj.CoreCompileInputs.cache
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.exe
+C:\Users\thoma\Downloads\travail1-master\travail1-master\obj\Debug\travail1.pdb
