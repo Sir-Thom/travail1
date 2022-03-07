@@ -23,19 +23,24 @@ namespace travail1
             int PoidsDuLivraison;
             int VolumeDuLivraison;
 
-            //int PoidsDuCamionInfo = int.Parse(txt_poids.Text);
-            //VolumeDuCamionInfo = int.Parse(txt_volume.Text);
-            PoidsDuLivraison = int.Parse(txt_poids.Text);
-            VolumeDuLivraison = int.Parse(txt_volume.Text);
-            livraison = new Livraison(PoidsDuLivraison, VolumeDuLivraison);
-            // CamionCree = "Poids : " + PoidsDuCamion.ToString() + " Lbs "  + " , Volume de : " + VolumeDuCamion.ToString();
-            this.DialogResult = DialogResult.OK;
-            //  CamionCree = "Camion de :" + PoidsDuCamionInfo + " Lbs " + volumeDuCamion.ToString() + " avec un volume de : " + VolumeDuCamionInfo;
-            this.Close();
-        }
+            bool parsesucces1 = int.TryParse(txt_poids.Text, out PoidsDuLivraison);
+            bool parsesucces2 = int.TryParse(txt_volume.Text, out VolumeDuLivraison);
+            if (parsesucces1 && parsesucces2)
+            {
+                PoidsDuLivraison = int.Parse(txt_poids.Text);
+                VolumeDuLivraison = int.Parse(txt_volume.Text);
+                livraison = new Livraison(PoidsDuLivraison, VolumeDuLivraison);
 
-        private void DtpDateLivraison_ValueChanged(object sender, EventArgs e)
-        {
+                this.DialogResult = DialogResult.OK;
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Aucun mots n'est accepter, veuillez utiliser des chiffres.");
+                txt_poids.Clear();
+                txt_volume.Clear();
+            }
         }
     }
 }

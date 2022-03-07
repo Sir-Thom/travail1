@@ -23,13 +23,24 @@ namespace travail1
             int PoidsDuCamion;
             int VolumeDuCamion;
 
-            PoidsDuCamion = int.Parse(txt_poids.Text);
-            VolumeDuCamion = int.Parse(txt_volume.Text);
-            camion = new Camion(PoidsDuCamion, VolumeDuCamion);
+            bool parsesucces1 = int.TryParse(txt_poids.Text, out PoidsDuCamion);
+            bool parsesucces2 = int.TryParse(txt_volume.Text, out VolumeDuCamion);
+            if (parsesucces1 && parsesucces2)
+            {
+                PoidsDuCamion = int.Parse(txt_poids.Text);
+                VolumeDuCamion = int.Parse(txt_volume.Text);
+                camion = new Camion(PoidsDuCamion, VolumeDuCamion);
 
-            this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
 
-            this.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Aucun mots n'est accepter, veuillez utiliser des chiffres.");
+                txt_poids.Clear();
+                txt_volume.Clear();
+            }
         }
     }
 }

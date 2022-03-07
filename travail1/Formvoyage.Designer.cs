@@ -36,7 +36,7 @@ namespace travail1
             // 
             // txt_voyage
             // 
-            this.txt_voyage.Location = new System.Drawing.Point(98, 6);
+            this.txt_voyage.Location = new System.Drawing.Point(98, 20);
             this.txt_voyage.Name = "txt_voyage";
             this.txt_voyage.Size = new System.Drawing.Size(100, 20);
             this.txt_voyage.TabIndex = 0;
@@ -44,7 +44,7 @@ namespace travail1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 1;

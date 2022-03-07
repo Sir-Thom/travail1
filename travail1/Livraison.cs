@@ -7,16 +7,16 @@
 
         public Livraison(int poidsDulivraison, int volumeDuLivraison)
         {
-            PoidsDuLivraisonInfo = poidsDulivraison;
-            VolumeDuLivraisonInfo = volumeDuLivraison;
+            PoidsDeLivraisonInfo = poidsDulivraison;
+            VolumeDeLivraisonInfo = volumeDuLivraison;
         }
 
-        public int PoidsDuLivraisonInfo { get => poidsDulivraison; set => poidsDulivraison = value; }
-        public int VolumeDuLivraisonInfo { get => volumeDuLivraison; set => volumeDuLivraison = value; }
+        public int PoidsDeLivraisonInfo { get => poidsDulivraison; set => poidsDulivraison = value; }
+        public int VolumeDeLivraisonInfo { get => volumeDuLivraison; set => volumeDuLivraison = value; }
 
         public override string ToString()
         {
-            return PoidsDuLivraisonInfo.ToString() + "Lbs , " + VolumeDuLivraisonInfo.ToString();
+            return PoidsDeLivraisonInfo.ToString() + "Lbs , " + VolumeDeLivraisonInfo.ToString();
         }
     }
 }

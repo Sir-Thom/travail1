@@ -4,17 +4,46 @@ using System.Windows.Forms;
 
 namespace travail1
 {
+    /*
+    ████████╗██████╗░░█████╗░██╗░░░██╗░█████╗░██╗██╗░░░░░  ░░███╗░░
+    ╚══██╔══╝██╔══██╗██╔══██╗██║░░░██║██╔══██╗██║██║░░░░░  ░████║░░
+    ░░░██║░░░██████╔╝███████║╚██╗░██╔╝███████║██║██║░░░░░  ██╔██║░░
+    ░░░██║░░░██╔══██╗██╔══██║░╚████╔╝░██╔══██║██║██║░░░░░  ╚═╝██║░░
+    ░░░██║░░░██║░░██║██║░░██║░░╚██╔╝░░██║░░██║██║███████╗  ███████╗
+    ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚══════╝  ╚══════╝
+
+    ██████╗░██████╗░░█████╗░░██████╗░██████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░████████╗██╗░█████╗░███╗░░██╗
+    ██╔══██╗██╔══██╗██╔══██╗██╔════╝░██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║
+    ██████╔╝██████╔╝██║░░██║██║░░██╗░██████╔╝███████║██╔████╔██║██╔████╔██║███████║░░░██║░░░██║██║░░██║██╔██╗██║
+    ██╔═══╝░██╔══██╗██║░░██║██║░░╚██╗██╔══██╗██╔══██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║░░░██║░░░██║██║░░██║██║╚████║
+    ██║░░░░░██║░░██║╚█████╔╝╚██████╔╝██║░░██║██║░░██║██║░╚═╝░██║██║░╚═╝░██║██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
+    ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
+
+    ░█████╗░██████╗░░░░░░██╗███████╗████████╗
+    ██╔══██╗██╔══██╗░░░░░██║██╔════╝╚══██╔══╝
+    ██║░░██║██████╦╝░░░░░██║█████╗░░░░░██║░░░
+    ██║░░██║██╔══██╗██╗░░██║██╔══╝░░░░░██║░░░
+    ╚█████╔╝██████╦╝╚█████╔╝███████╗░░░██║░░░
+    ░╚════╝░╚═════╝░░╚════╝░╚══════╝░░░╚═╝░░░
+
+    * Auteur : Thomas Toulouse
+    *
+    * Date : 07/03/2022
+    *
+    * Descrption: Application permettant de gérer un flotte de camion.
+    */
+
     public partial class parent : Form
     {
         private BindingSource bindingSourceCamion = new BindingSource();
         private BindingSource bindingSourceCamionneur = new BindingSource();
         private List<Camion> camionsList = new List<Camion>();
-        private BindingSource bsLivraison = new BindingSource();
-        private BindingSource bsLivraison2 = new BindingSource();
+        private BindingSource bsLivraisonNonAssigne = new BindingSource();
+        private BindingSource bsLivraisonInclus = new BindingSource();
         private BindingSource bsLivraison3 = new BindingSource();
         private List<Camionneur> CamionneursList = new List<Camionneur>();
-        private List<Livraison> LivraisonList = new List<Livraison>();
-        private List<Livraison> LivraisonList2 = new List<Livraison>();
+        private List<Livraison> LivraisonNonAssigneList = new List<Livraison>();
+        private List<Livraison> LivraisonInclusList = new List<Livraison>();
         private List<Livraison> LivraisonList3 = new List<Livraison>();
 
         private BindingSource bsVoyage = new BindingSource();
@@ -32,18 +61,21 @@ namespace travail1
             cbox_Camionneur.DataSource = bindingSourceCamionneur;
             bindingSourceCamion.DataSource = camionsList;
             cbox_camion.DataSource = bindingSourceCamion;
-            lst_non_livraison.DataSource = bsLivraison;
-            bsLivraison2.DataSource = voyageselect;
-            lst_livraison_incluse.DataSource = bsLivraison2;
+            lst_non_livraison.DataSource = bsLivraisonNonAssigne;
+
+            bsLivraisonInclus.DataSource = LivraisonInclusList;
+            lst_livraison_incluse.DataSource = bsLivraisonInclus;
+
             bsVoyage.DataSource = listVoyages;
             lst_voyage.DataSource = bsVoyage;
-
+            // 2 voyage
             voyage nouveauvoyage = new voyage("Voyage1");
             listVoyages.Add(nouveauvoyage);
             bsVoyage.ResetBindings(false);
             voyage nouveauvoyage2 = new voyage("Voyage2");
             listVoyages.Add(nouveauvoyage2);
             bsVoyage.ResetBindings(false);
+            // 4 camions
             Camion camion1 = new Camion(500, 500);
             Camion camion2 = new Camion(100, 100);
             Camion camion3 = new Camion(1000, 1000);
@@ -54,6 +86,8 @@ namespace travail1
             camionsList.Add(camion4);
             bindingSourceCamion.DataSource = camionsList;
             bindingSourceCamion.ResetBindings(false);
+
+            // 3 camionneurs
             Camionneur camionneur1 = new Camionneur("Jean-Paul", "ptit");
             Camionneur camionneur2 = new Camionneur("Joe", "Blow");
             Camionneur camionneur3 = new Camionneur("Réjean", "Elgro");
@@ -63,17 +97,18 @@ namespace travail1
             CamionneursList.Add(camionneur3);
             CamionneursList.Add(camionneur4);
             bindingSourceCamionneur.ResetBindings(false);
+            // 4 livraisons
             Livraison livraison1 = new Livraison(100, 100);
             Livraison livraison2 = new Livraison(600, 600);
             Livraison livraison3 = new Livraison(100, 700);
             Livraison livraison4 = new Livraison(6000, 6000);
-            LivraisonList.Add(livraison1);
-            LivraisonList.Add(livraison2);
-            LivraisonList.Add(livraison3);
-            LivraisonList.Add(livraison4);
+            LivraisonNonAssigneList.Add(livraison1);
+            LivraisonNonAssigneList.Add(livraison2);
+            LivraisonNonAssigneList.Add(livraison3);
+            LivraisonNonAssigneList.Add(livraison4);
 
-            bsLivraison.DataSource = LivraisonList;
-            bsLivraison.ResetBindings(false);
+            bsLivraisonNonAssigne.DataSource = LivraisonNonAssigneList;
+            bsLivraisonNonAssigne.ResetBindings(false);
 
             lst_voyage.SelectedItem = null;
         }
@@ -87,25 +122,19 @@ namespace travail1
             if (livraisonselect != null)
             {
                 string messageretour = voyageselect.AjouterLivraison(livraisonselect);
-                if (messageretour == null)
+                // permets d'afficher n'importe quel message d'erreur
+                if (messageretour == messageretour)
                 {
-                    voyageselect.ListLivraison = livraisonselect;
-
-                    int test = bsLivraison2.Add(voyageselect.ListLivraison);
-
-                    bsLivraison2.ResetBindings(false);
-                    bsLivraison.Remove(livraisonselect);
-
-                    bsLivraison.ResetBindings(false);
+                    MessageBox.Show(messageretour);
                 }
+                // remplis la listbox
+                else
+                {
+                    LivraisonInclusList.Add(livraisonselect);
+                    LivraisonNonAssigneList.Remove(livraisonselect);
 
-                if (messageretour == "un camion doit être selectionné")
-                {
-                    MessageBox.Show("erreur un camion doit être ajouter");
-                }
-                if (messageretour == "poids trop lourd pour le camion")
-                {
-                    MessageBox.Show("poids trop lourd pour le camion");
+                    bsLivraisonInclus.ResetBindings(false);
+                    bsLivraisonNonAssigne.ResetBindings(false);
                 }
             }
         }
@@ -118,12 +147,14 @@ namespace travail1
 
             if (livraisonselect != null)
             {
-                int test = bsLivraison.Add(livraisonselect);
+                // remplis la listbox
+                voyageselect.retirerInclus(livraisonselect);
 
-                bsLivraison.ResetBindings(false);
-                bsLivraison2.Remove(livraisonselect);
+                LivraisonInclusList.Remove(livraisonselect);
+                LivraisonNonAssigneList.Add(livraisonselect);
 
-                bsLivraison2.ResetBindings(false);
+                bsLivraisonInclus.ResetBindings(false);
+                bsLivraisonNonAssigne.ResetBindings(false);
             }
         }
 
@@ -170,9 +201,9 @@ namespace travail1
                 if (resultat == DialogResult.OK)
                 {
                     Livraison livraison = livraisonInfo.livraison;
-                    LivraisonList.Add(livraison);
+                    LivraisonNonAssigneList.Add(livraison);
 
-                    bsLivraison.ResetBindings(false);
+                    bsLivraisonNonAssigne.ResetBindings(false);
                 }
             }
         }
@@ -188,7 +219,7 @@ namespace travail1
                     listVoyages.Add(voyage);
                     bsVoyage.ResetBindings(false);
 
-                    bsLivraison.ResetBindings(false);
+                    bsLivraisonNonAssigne.ResetBindings(false);
                 }
             }
         }
@@ -212,21 +243,18 @@ namespace travail1
         {
             grbox_voyageSelecttioner.Hide();
             voyage voyageselect = (voyage)lst_voyage.SelectedItem;
+
             if (voyageselect != null)
             {
                 lst_voyage.SelectedItem = voyageselect.NomVoyage;
                 grbox_voyageSelecttioner.Show();
                 cbox_camion.SelectedItem = voyageselect.Camion;
                 txt_distance.Text = voyageselect.Distance.ToString();
-
-                //lst_livraison_incluse.SelectedItem = voyageselect.ListLivraison;
                 dateTimePicker1.Value = voyageselect.Date;
-
-                //  Livraison livraisonSelect = (Livraison)lst_livraison_incluse.SelectedItem;
-
-                LivraisonList2.Clear();
-                LivraisonList2.AddRange(voyageselect.);
-                bsLivraison2.ResetBindings(false);
+                // mets à jour la livraison
+                bsLivraisonInclus.Clear();
+                LivraisonInclusList.AddRange(voyageselect.ListeLivraison.ToArray());
+                bsLivraisonInclus.ResetBindings(false);
             }
         }
 
@@ -293,7 +321,7 @@ namespace travail1
                 voyage voyageselect = (voyage)lst_voyage.SelectedItem;
                 if (voyageselect != null)
                 {
-                    voyageselect.ListLivraison = livraisonSelect;
+                    //voyageselect.ListeLivraison = livraisonSelect ;
                 }
             }
         }
