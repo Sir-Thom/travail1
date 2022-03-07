@@ -35,11 +35,11 @@ namespace travail1
             this.camionneurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.livraisonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voyageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grboxAjoutvoyage = new System.Windows.Forms.GroupBox();
             this.lst_voyage = new System.Windows.Forms.ListBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GrboxLivraisonNonAssigne = new System.Windows.Forms.GroupBox();
             this.lst_non_livraison = new System.Windows.Forms.ListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grbox_voyageSelecttioner = new System.Windows.Forms.GroupBox();
             this.txt_distance = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lb_livraisonIncluse = new System.Windows.Forms.Label();
@@ -53,9 +53,9 @@ namespace travail1
             this.btn_dans = new System.Windows.Forms.Button();
             this.btn_hors = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grboxAjoutvoyage.SuspendLayout();
+            this.GrboxLivraisonNonAssigne.SuspendLayout();
+            this.grbox_voyageSelecttioner.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -110,15 +110,15 @@ namespace travail1
             this.voyageToolStripMenuItem.Text = "Voyage";
             this.voyageToolStripMenuItem.Click += new System.EventHandler(this.voyageToolStripMenuItem_Click);
             // 
-            // groupBox1
+            // grboxAjoutvoyage
             // 
-            this.groupBox1.Controls.Add(this.lst_voyage);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 173);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Voyage";
+            this.grboxAjoutvoyage.Controls.Add(this.lst_voyage);
+            this.grboxAjoutvoyage.Location = new System.Drawing.Point(12, 27);
+            this.grboxAjoutvoyage.Name = "grboxAjoutvoyage";
+            this.grboxAjoutvoyage.Size = new System.Drawing.Size(319, 173);
+            this.grboxAjoutvoyage.TabIndex = 1;
+            this.grboxAjoutvoyage.TabStop = false;
+            this.grboxAjoutvoyage.Text = "Voyage";
             // 
             // lst_voyage
             // 
@@ -129,15 +129,15 @@ namespace travail1
             this.lst_voyage.TabIndex = 0;
             this.lst_voyage.SelectedIndexChanged += new System.EventHandler(this.lst_voyage_SelectedIndexChanged);
             // 
-            // groupBox2
+            // GrboxLivraisonNonAssigne
             // 
-            this.groupBox2.Controls.Add(this.lst_non_livraison);
-            this.groupBox2.Location = new System.Drawing.Point(12, 206);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 176);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Livraison non-Assignées";
+            this.GrboxLivraisonNonAssigne.Controls.Add(this.lst_non_livraison);
+            this.GrboxLivraisonNonAssigne.Location = new System.Drawing.Point(12, 206);
+            this.GrboxLivraisonNonAssigne.Name = "GrboxLivraisonNonAssigne";
+            this.GrboxLivraisonNonAssigne.Size = new System.Drawing.Size(319, 176);
+            this.GrboxLivraisonNonAssigne.TabIndex = 2;
+            this.GrboxLivraisonNonAssigne.TabStop = false;
+            this.GrboxLivraisonNonAssigne.Text = "Livraison non-Assignées";
             // 
             // lst_non_livraison
             // 
@@ -148,24 +148,24 @@ namespace travail1
             this.lst_non_livraison.TabIndex = 1;
             this.lst_non_livraison.SelectedIndexChanged += new System.EventHandler(this.lst_non_livraison_SelectedIndexChanged);
             // 
-            // groupBox3
+            // grbox_voyageSelecttioner
             // 
-            this.groupBox3.Controls.Add(this.txt_distance);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
-            this.groupBox3.Controls.Add(this.lb_livraisonIncluse);
-            this.groupBox3.Controls.Add(this.lb_Distance);
-            this.groupBox3.Controls.Add(this.lb_Camion);
-            this.groupBox3.Controls.Add(this.lb_Camionneur);
-            this.groupBox3.Controls.Add(this.lb_date);
-            this.groupBox3.Controls.Add(this.cbox_Camionneur);
-            this.groupBox3.Controls.Add(this.cbox_camion);
-            this.groupBox3.Controls.Add(this.lst_livraison_incluse);
-            this.groupBox3.Location = new System.Drawing.Point(382, 27);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(321, 355);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Voyage selectionné";
+            this.grbox_voyageSelecttioner.Controls.Add(this.txt_distance);
+            this.grbox_voyageSelecttioner.Controls.Add(this.dateTimePicker1);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lb_livraisonIncluse);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lb_Distance);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lb_Camion);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lb_Camionneur);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lb_date);
+            this.grbox_voyageSelecttioner.Controls.Add(this.cbox_Camionneur);
+            this.grbox_voyageSelecttioner.Controls.Add(this.cbox_camion);
+            this.grbox_voyageSelecttioner.Controls.Add(this.lst_livraison_incluse);
+            this.grbox_voyageSelecttioner.Location = new System.Drawing.Point(382, 27);
+            this.grbox_voyageSelecttioner.Name = "grbox_voyageSelecttioner";
+            this.grbox_voyageSelecttioner.Size = new System.Drawing.Size(321, 355);
+            this.grbox_voyageSelecttioner.TabIndex = 2;
+            this.grbox_voyageSelecttioner.TabStop = false;
+            this.grbox_voyageSelecttioner.Text = "Voyage selectionné";
             // 
             // txt_distance
             // 
@@ -286,9 +286,9 @@ namespace travail1
             this.ClientSize = new System.Drawing.Size(799, 394);
             this.Controls.Add(this.btn_hors);
             this.Controls.Add(this.btn_dans);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GrboxLivraisonNonAssigne);
+            this.Controls.Add(this.grbox_voyageSelecttioner);
+            this.Controls.Add(this.grboxAjoutvoyage);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "parent";
@@ -296,10 +296,10 @@ namespace travail1
             this.Load += new System.EventHandler(this.parent_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grboxAjoutvoyage.ResumeLayout(false);
+            this.GrboxLivraisonNonAssigne.ResumeLayout(false);
+            this.grbox_voyageSelecttioner.ResumeLayout(false);
+            this.grbox_voyageSelecttioner.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,9 +313,9 @@ namespace travail1
         private System.Windows.Forms.ToolStripMenuItem camionneurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem livraisonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voyageToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grboxAjoutvoyage;
+        private System.Windows.Forms.GroupBox GrboxLivraisonNonAssigne;
+        private System.Windows.Forms.GroupBox grbox_voyageSelecttioner;
         private System.Windows.Forms.ListBox lst_voyage;
         private System.Windows.Forms.ListBox lst_non_livraison;
         private System.Windows.Forms.Label lb_livraisonIncluse;
